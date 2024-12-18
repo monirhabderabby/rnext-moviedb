@@ -4,9 +4,12 @@ import TopRated from "./_components/top-rated";
 import TrendingNow from "./_components/trending-now";
 
 export default async function Home() {
-  const trendingMoviesRes = await fetch("http://localhost:3000/api/trending", {
-    cache: "no-store",
-  });
+  const trendingMoviesRes = await fetch(
+    "http://localhost:3000/api/movies/trending",
+    {
+      cache: "no-store",
+    }
+  );
 
   const trendingMoviesData = await trendingMoviesRes.json();
   const trendingMovies = trendingMoviesData?.data;

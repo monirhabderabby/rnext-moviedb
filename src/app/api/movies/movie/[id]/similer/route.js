@@ -3,7 +3,7 @@ export async function GET(req, { params }) {
 
   try {
     const res = await fetch(
-      `https://api.themoviedb.org/3/movie/${movieId}?language=en-US`,
+      `https://api.themoviedb.org/3/movie/${movieId}/similar`,
       {
         method: "GET",
         headers: {

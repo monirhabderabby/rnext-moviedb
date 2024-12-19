@@ -1,106 +1,88 @@
 import { Icons } from "@/components/ui/Icons";
+import { base64 } from "@/lib/base64";
+import moment from "moment";
+import Image from "next/image";
+import { Suspense } from "react";
+import Cast from "./cast";
 
-const MovieDetails = () => {
+const MovieDetails = ({ data }) => {
+  const {
+    poster_path,
+    original_title,
+    overview,
+    release_date,
+    runtime,
+    genres,
+    id,
+  } = data || {};
+
+  const src = `https://image.tmdb.org/t/p/original/${poster_path}`;
   return (
     <div id="movieDetails" className="min-h-screen pt-20 mb-8">
       <div className="relative h-screen">
         <div className="absolute inset-0">
-          <img
-            src="https://image.tmdb.org/t/p/original/iR79ciqhtaZ9BE7YFA1HpCHQgX4.jpg"
-            alt="Smile 2"
+          <Image
+            fill
+            src={src}
+            alt={original_title}
+            placeholder="blur"
+            blurDataURL={base64}
             className="w-full h-full object-cover"
+            priority
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black via-black/70"></div>
         </div>
 
         <div className="relative container mx-auto px-4 pt-32">
           <div className="flex flex-col md:flex-row gap-8">
-            <div className="md:w-1/3">
-              <img
-                src="https://image.tmdb.org/t/p/original/ht8Uv9QPv9y7K0RvUyJIaXOZTfd.jpg"
-                alt="Smile 2"
+            <div className="md:w-1/3 relative">
+              <Image
+                src={src}
+                alt={original_title}
+                fill
                 className="w-full rounded-lg shadow-lg"
+                placeholder="blur"
+                blurDataURL={base64}
               />
             </div>
 
             <div className="md:w-2/3">
-              <h1 className="text-4xl font-bold mb-4">Smile 2</h1>
+              <h1 className="text-4xl font-bold mb-4">{original_title}</h1>
 
               <div className="flex items-center mb-4 space-x-4">
-                <span className="text-green-500"> 24 November 2024 </span>
+                <span className="text-green-500">
+                  {" "}
+                  {moment(release_date).format("ll")}{" "}
+                </span>
                 <span>| </span>
-                <span>127 min</span>
+                <span>{runtime} min</span>
               </div>
 
-              <p className="text-lg mb-6">
-                About to embark on a new world tour, global pop sensation Skye
-                Riley begins experiencing increasingly terrifying and
-                inexplicable events. Overwhelmed by the escalating horrors and
-                the pressures of fame, Skye is forced to face her dark past to
-                regain control of her life before it spirals out of control.
-              </p>
+              <p className="text-lg mb-6">{overview}</p>
 
               <div className="mb-6">
                 <h3 className="text-gray-400 mb-2">Genres</h3>
                 <div className="flex flex-wrap gap-2">
-                  <span className="px-3 py-1 bg-gray-800 rounded-full text-sm">
-                    Horror{" "}
-                  </span>
-                  <span className="px-3 py-1 bg-gray-800 rounded-full text-sm">
-                    Mystery
-                  </span>
+                  {genres.map(({ id, name }) => (
+                    <span
+                      className="px-3 py-1 bg-gray-800 rounded-full text-sm"
+                      key={id}
+                    >
+                      {name}
+                    </span>
+                  ))}
                 </div>
               </div>
 
-              <div className="mb-6">
-                <h3 className="text-gray-400 mb-2">Cast</h3>
-                <div className="flex flex-wrap gap-4">
-                  <div className="text-center">
-                    <img
-                      src="https://image.tmdb.org/t/p/original/6OLe7TskbEvYpo36eITfX91VoCP.jpg"
-                      alt="Naomi Scott"
-                      className="w-24 h-24 rounded-full object-cover mb-2"
-                    />
-                    <p className="text-sm">Naomi Scott</p>
+              <Suspense
+                fallback={
+                  <div className="h-[96px] flex justify-center items-center w-[200px]">
+                    Loading...
                   </div>
-
-                  <div className="text-center">
-                    <img
-                      src="https://image.tmdb.org/t/p/original/44sxIdGtYN24R14OmnZbCpcd8J8.jpg"
-                      alt="Rosemarie DeWitt"
-                      className="w-24 h-24 rounded-full object-cover mb-2"
-                    />
-                    <p className="text-sm">Rosemarie DeWitt</p>
-                  </div>
-
-                  <div className="text-center">
-                    <img
-                      src="https://image.tmdb.org/t/p/original/j7Zub5J9PgCnsfgEC5QCr160JtH.jpg"
-                      alt="Lukas Gage"
-                      className="w-24 h-24 rounded-full object-cover mb-2"
-                    />
-                    <p className="text-sm">Lukas Gage</p>
-                  </div>
-
-                  <div className="text-center">
-                    <img
-                      src="https://image.tmdb.org/t/p/original/22JmiXEKoIHTKAdZaxOiS5wVHnM.jpg"
-                      alt="Miles Gutierrez-Riley"
-                      className="w-24 h-24 rounded-full object-cover mb-2"
-                    />
-                    <p className="text-sm">Miles Gutierrez-Riley</p>
-                  </div>
-
-                  <div className="text-center">
-                    <img
-                      src="https://image.tmdb.org/t/p/original/pGi9CnzEG4cLa2viUP89yvlPCyR.jpg"
-                      alt="Peter Jacobson"
-                      className="w-24 h-24 rounded-full object-cover mb-2"
-                    />
-                    <p className="text-sm">Peter Jacobson</p>
-                  </div>
-                </div>
-              </div>
+                }
+              >
+                <Cast movieId={id} />
+              </Suspense>
 
               <div className="mb-6">
                 <div className="flex flex-wrap gap-4">

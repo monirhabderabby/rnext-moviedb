@@ -1,3 +1,4 @@
+import { base64 } from "@/lib/base64";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -19,9 +20,11 @@ const MovieCard = async ({ isTextRender, data }) => {
           <Image
             src={`https://image.tmdb.org/t/p/original${poster_path}`}
             width={192}
-            height={100}
+            height={292}
             alt="Venom: The Last Dance"
             className="w-full rounded-lg bg-white/10"
+            placeholder="blur"
+            blurDataURL={base64}
           />
         )}
         {isTextRender && (

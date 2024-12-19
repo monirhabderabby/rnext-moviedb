@@ -36,11 +36,11 @@ const CompareContainer = () => {
     );
   };
   return (
-    <main class="container mx-auto px-4 pt-24 pb-8">
-      <div class="flex justify-between items-center mb-8">
-        <h1 class="text-3xl font-bold">Compare Movies</h1>
+    <main className="container mx-auto px-4 pt-24 pb-8">
+      <div className="flex justify-between items-center mb-8">
+        <h1 className="text-3xl font-bold">Compare Movies</h1>
         <button
-          class="bg-red-600 text-white px-6 py-2 rounded hover:bg-red-700 transition-colors"
+          className="bg-red-600 text-white px-6 py-2 rounded hover:bg-red-700 transition-colors"
           onClick={createSLots}
         >
           Add Movie +
@@ -48,7 +48,7 @@ const CompareContainer = () => {
       </div>
 
       {/* <!-- Movie Comparison Container --> */}
-      <div class="grid gap-6 md:grid-cols-2">
+      <div className="grid gap-6 md:grid-cols-2">
         {slots.map((slot) => (
           <SLot
             key={slot.slotId}

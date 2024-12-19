@@ -1,9 +1,9 @@
-import { Icons } from "@/components/ui/Icons";
 import { base64 } from "@/lib/base64";
 import moment from "moment";
 import Image from "next/image";
 import { Suspense } from "react";
 import Cast from "./cast";
+import WatchlistButtons from "./watchlist-container";
 
 const MovieDetails = ({ data }) => {
   const {
@@ -84,23 +84,7 @@ const MovieDetails = ({ data }) => {
                 <Cast movieId={id} />
               </Suspense>
 
-              <div className="mb-6">
-                <div className="flex flex-wrap gap-4">
-                  <div className="text-center">
-                    <button className="flex items-center gap-2 bg-black/40 px-4 py-2 rounded-lg">
-                      {Icons.bookmark}
-                      Add to Wacth List
-                    </button>
-                  </div>
-
-                  <div className="text-center">
-                    <button className="flex items-center gap-2 bg-black/40 px-4 py-2 rounded-lg text-green-600">
-                      {Icons.checked}
-                      Added to Wacth List
-                    </button>
-                  </div>
-                </div>
-              </div>
+              <WatchlistButtons movieId={id} />
 
               <div className="mb-6">
                 <h3 className="text-gray-400 mb-2">Share on social media</h3>

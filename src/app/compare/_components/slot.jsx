@@ -36,17 +36,17 @@ const SLot = ({ slot, onRemove, onMovieAdd }) => {
   const { genres, revenue, runtime, budget } = additionalMovieInfo || {};
 
   return (
-    <div class="bg-zinc-900 rounded-lg p-4 flex flex-col">
-      <div class="flex justify-end mb-4">
+    <div className="bg-zinc-900 rounded-lg p-4 flex flex-col">
+      <div className="flex justify-end mb-4">
         <button
           onClick={() => onRemove(slot.slotId)}
-          class="text-gray-400 hover:text-white"
+          className="text-gray-400 hover:text-white"
         >
           ✕
         </button>
       </div>
-      <div class="grid grid-cols-5 gap-8">
-        <div class="col-span-2 h-full">
+      <div className="grid grid-cols-5 gap-8">
+        <div className="col-span-2 h-full">
           <Image
             src={src}
             alt={title}
@@ -54,37 +54,37 @@ const SLot = ({ slot, onRemove, onMovieAdd }) => {
             height={600}
             placeholder="blur"
             blurDataURL={base64}
-            class="w-full rounded-lg mb-4 object-contain max-h-full"
+            className="w-full rounded-lg mb-4 object-contain max-h-full"
           />
-          <h2 class="text-xl font-bold mb-2 text-center">{title}</h2>
+          <h2 className="text-xl font-bold mb-2 text-center">{title}</h2>
         </div>
-        <div class="w-full space-y-4 col-span-3">
-          <div class="bg-zinc-800 p-3 rounded">
-            <span class="text-gray-400">Rating:</span>
-            <span class="float-right">{vote_average.toFixed(1)}/10</span>
+        <div className="w-full space-y-4 col-span-3">
+          <div className="bg-zinc-800 p-3 rounded">
+            <span className="text-gray-400">Rating:</span>
+            <span className="float-right">{vote_average.toFixed(1)}/10</span>
           </div>
-          <div class="bg-zinc-800 p-3 rounded">
-            <span class="text-gray-400">Release Year:</span>
-            <span class="float-right">{releaseDate.getFullYear()}</span>
+          <div className="bg-zinc-800 p-3 rounded">
+            <span className="text-gray-400">Release Year:</span>
+            <span className="float-right">{releaseDate.getFullYear()}</span>
           </div>
-          <div class="bg-zinc-800 p-3 rounded">
-            <span class="text-gray-400">Runtime:</span>
-            <span class="float-right">{runtime} min</span>
+          <div className="bg-zinc-800 p-3 rounded">
+            <span className="text-gray-400">Runtime:</span>
+            <span className="float-right">{runtime} min</span>
           </div>
-          <div class="bg-zinc-800 p-3 rounded">
-            <span class="text-gray-400">Budget:</span>
-            <span class="float-right">${budget}</span>
+          <div className="bg-zinc-800 p-3 rounded">
+            <span className="text-gray-400">Budget:</span>
+            <span className="float-right">${budget}</span>
           </div>
-          <div class="bg-zinc-800 p-3 rounded">
-            <span class="text-gray-400">Revenue:</span>
-            <span class="float-right">${revenue}</span>
+          <div className="bg-zinc-800 p-3 rounded">
+            <span className="text-gray-400">Revenue:</span>
+            <span className="float-right">${revenue}</span>
           </div>
-          <div class="bg-zinc-800 p-3 rounded">
-            <span class="text-gray-400">Genres:</span>
-            <div class="mt-2 flex flex-wrap gap-2">
+          <div className="bg-zinc-800 p-3 rounded">
+            <span className="text-gray-400">Genres:</span>
+            <div className="mt-2 flex flex-wrap gap-2">
               {genres?.map((item) => (
                 <span
-                  class="bg-zinc-700 px-2 py-1 rounded-full text-sm"
+                  className="bg-zinc-700 px-2 py-1 rounded-full text-sm"
                   key={item.id}
                 >
                   {item.name}
@@ -105,18 +105,18 @@ const EmptySlot = ({ onRemove, slot, onMovieAdd }) => {
   const [open, setOpen] = useState(false);
   return (
     <>
-      <div class="bg-zinc-900 rounded-lg p-4 flex flex-col min-h-[400px]">
-        <div class="flex justify-end mb-4">
+      <div className="bg-zinc-900 rounded-lg p-4 flex flex-col min-h-[400px]">
+        <div className="flex justify-end mb-4">
           <button
-            class="text-gray-400 hover:text-white"
+            className="text-gray-400 hover:text-white"
             onClick={() => onRemove(slot.slotId)}
           >
             ✕
           </button>
         </div>
-        <div class="flex-grow flex flex-col items-center justify-center">
+        <div className="flex-grow flex flex-col items-center justify-center">
           <button
-            class="bg-zinc-800 text-white px-6 py-3 rounded hover:bg-zinc-700 transition-colors cursor-pointer"
+            className="bg-zinc-800 text-white px-6 py-3 rounded hover:bg-zinc-700 transition-colors cursor-pointer"
             onClick={() => setOpen((p) => !p)}
           >
             Select Movie

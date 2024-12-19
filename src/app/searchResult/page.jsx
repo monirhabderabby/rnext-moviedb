@@ -29,7 +29,7 @@ const Page = () => {
     content = <div className="text-white">No Result found</div>;
   } else if (movies.length > 0) {
     content = (
-      <div class="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-4 gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-4 gap-6">
         {movies.map((movie) => (
           <MovieCard key={movie.id} data={movie} />
         ))}
@@ -38,10 +38,10 @@ const Page = () => {
   }
 
   return (
-    <main class="container mx-auto px-4 pt-24 pb-8">
-      <div class="mb-6">
-        <h1 class="text-2xl font-bold">Search Results for "{query}"</h1>
-        <p class="text-gray-400">Found {movies.length} results</p>
+    <main className="container mx-auto px-4 pt-24 pb-8">
+      <div className="mb-6">
+        <h1 className="text-2xl font-bold">Search Results for "{query}"</h1>
+        <p className="text-gray-400">Found {movies.length} results</p>
       </div>
       {content}
     </main>
@@ -59,7 +59,7 @@ const MovieCard = ({ data }) => {
   return (
     <Link
       href={`/movie/${id}`}
-      class="bg-zinc-900 rounded-lg overflow-hidden hover:scale-105 transition-transform"
+      className="bg-zinc-900 rounded-lg overflow-hidden hover:scale-105 transition-transform"
     >
       <Image
         src={src}
@@ -68,11 +68,11 @@ const MovieCard = ({ data }) => {
         placeholder="blur"
         blurDataURL={base64}
         alt={title}
-        class="w-full aspect-[2/3] object-cover"
+        className="w-full aspect-[2/3] object-cover"
       />
-      <div class="p-4">
-        <h3 class="font-bold mb-2">{title}</h3>
-        <div class="flex justify-between text-sm text-gray-400">
+      <div className="p-4">
+        <h3 className="font-bold mb-2">{title}</h3>
+        <div className="flex justify-between text-sm text-gray-400">
           <span>{date.getFullYear()}</span>
           <span>⭐ {vote_average?.toFixed(1)}</span>
         </div>

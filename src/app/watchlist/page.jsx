@@ -1,6 +1,6 @@
 import WatchlistContainer from "./_components/watchlist-container";
 
-const Page = () => {
+const Page = async () => {
   return (
     <div>
       <WatchlistContainer />

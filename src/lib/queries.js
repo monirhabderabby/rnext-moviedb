@@ -81,3 +81,27 @@ export const getMoviesBySearch = async (term) => {
     throw new Error(error.message);
   }
 };
+
+export const getWatchlist = async (userId) => {
+  try {
+    const res = await fetch(
+      `${process.env.NEXT_PUBLIC_APP_URL}/api/watchlist/${userId}`,
+      {
+        cache: "no-store",
+        next: {
+          tags: ["watchlists"],
+        },
+      }
+    );
+
+    const resData = await res.json();
+
+    if (!res.ok) {
+      throw new Error(resData?.message);
+    }
+
+    return resData;
+  } catch (error) {
+    throw new Error(error.message);
+  }
+};

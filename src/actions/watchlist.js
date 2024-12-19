@@ -28,3 +28,18 @@ export const ifWatched = async ({ userId, movieId }) => {
     throw error;
   }
 };
+
+export const removeWatchlist = async ({ userId, movieId }) => {
+  try {
+    const deleted = await WatchlistModel.deleteOne({
+      userId,
+      movieId,
+    });
+
+    if (deleted) {
+      return JSON.stringify(deleted);
+    }
+  } catch (error) {
+    throw error;
+  }
+};

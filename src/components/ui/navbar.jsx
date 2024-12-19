@@ -12,9 +12,9 @@ const Navbar = () => {
             <Link href="/" className="text-white hover:text-gray-300">
               Home
             </Link>
-            <a href="./compare.html" className="text-white hover:text-gray-300">
+            <Link href="/compare" className="text-white hover:text-gray-300">
               Compare Movies
-            </a>
+            </Link>
 
             <Link href="/watchlist" className="text-white hover:text-gray-300">
               Watch Later

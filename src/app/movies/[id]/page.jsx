@@ -1,4 +1,6 @@
+import SimilerMoviesSkeleton from "@/components/skeleton/similer-movies-skeleton";
 import { getSingleMovie } from "@/lib/queries";
+import { Suspense } from "react";
 import MovieDetails from "./_components/movie-details";
 import SimilerMovies from "./_components/similer-movies";
 
@@ -14,7 +16,10 @@ const Page = async ({ params }) => {
   return (
     <div>
       <MovieDetails data={movieDetails} />
-      <SimilerMovies movieId={movieId} />
+
+      <Suspense fallback={<SimilerMoviesSkeleton />}>
+        <SimilerMovies movieId={movieId} />
+      </Suspense>
     </div>
   );
 };

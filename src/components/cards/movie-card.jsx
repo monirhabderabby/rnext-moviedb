@@ -15,7 +15,7 @@ const MovieCard = async ({ isTextRender, data }) => {
 
   return (
     <div className="flex-shrink-0 w-48  cursor-pointer hover:scale-105 transition-transform">
-      <Link href={`/movies/${id}`}>
+      <Link href={`/movie/${id}`}>
         {src && (
           <Image
             src={`https://image.tmdb.org/t/p/original${poster_path}`}

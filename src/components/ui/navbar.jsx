@@ -1,4 +1,5 @@
 import Link from "next/link";
+import AuthButton from "./AuthButton";
 import Search from "./search";
 
 const Navbar = () => {
@@ -22,12 +23,13 @@ const Navbar = () => {
             </Link>
           </div>
         </div>
-        <div className="relative">
+        <div className="relative space-x-3 flex">
           <Search />
           <div
             id="searchResults"
             className="absolute w-full mt-2 bg-black bg-opacity-90 rounded-lg hidden"
           ></div>
+          <AuthButton />
         </div>
       </div>
     </nav>

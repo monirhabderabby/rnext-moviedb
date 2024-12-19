@@ -1,4 +1,5 @@
 import Link from "next/link";
+import LoginForm from "./_components/loginform";
 
 const LoginPage = () => {
   return (
@@ -7,26 +8,7 @@ const LoginPage = () => {
         <div class="text-center mb-6">
           <h1 class="text-white text-3xl font-bold mb-4">Sign In</h1>
 
-          <form id="loginForm" class="space-y-4">
-            <input
-              type="email"
-              placeholder="Email or phone number"
-              class="w-full p-3 bg-moviedb-gray text-white rounded focus:outline-none focus:ring-2 focus:ring-moviedb-red"
-              required
-            />
-            <input
-              type="password"
-              placeholder="Password"
-              class="w-full p-3 bg-moviedb-gray text-white rounded focus:outline-none focus:ring-2 focus:ring-moviedb-red"
-              required
-            />
-            <button
-              type="submit"
-              class="w-full bg-moviedb-red text-white py-3 rounded hover:bg-red-700 transition duration-300"
-            >
-              Sign In
-            </button>
-          </form>
+          <LoginForm />
 
           <div class="mt-4 flex justify-between text-moviedb-gray text-sm">
             <label class="flex items-center">

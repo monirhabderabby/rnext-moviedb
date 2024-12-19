@@ -1,3 +1,4 @@
+import AuthProvider from "@/components/provider/AuthProvider";
 import Navbar from "@/components/ui/navbar";
 import { dbConnect } from "@/lib/mongo";
 import { Toaster } from "sonner";
@@ -13,9 +14,11 @@ export default async function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={` antialiased bg-black text-white`}>
-        <Toaster />
-        <Navbar />
-        {children}
+        <AuthProvider>
+          <Toaster />
+          <Navbar />
+          {children}
+        </AuthProvider>
       </body>
     </html>
   );

@@ -1,6 +1,8 @@
 export async function GET(req, { params }) {
   const movieId = params.id;
 
+  const apiKey = process.env.TMDB_API_KEY;
+
   try {
     const res = await fetch(
       `https://api.themoviedb.org/3/movie/${movieId}/similar`,
@@ -8,8 +10,7 @@ export async function GET(req, { params }) {
         method: "GET",
         headers: {
           accept: "application/json",
-          Authorization:
-            "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJkMjg0M2Q0NjhmYzZiMWQyZGJiMWQ4YWJhY2RhOThjMiIsIm5iZiI6MTcyOTY4NjkzNi43MTUwMDAyLCJzdWIiOiI2NzE4ZWQ5OGM3ODAyY2M1MDM1OWFiMGYiLCJzY29wZXMiOlsiYXBpX3JlYWQiXSwidmVyc2lvbiI6MX0.iprcFJqKlYXARrv6ZvxzoC0mChzQnZ4CXXPxC1Lp6k0",
+          Authorization: `Bearer ${apiKey}`,
         },
       }
     );

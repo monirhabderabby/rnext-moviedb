@@ -2,6 +2,8 @@ export async function GET(req) {
   const { searchParams } = new URL(req.url);
   const query = searchParams.get("q");
 
+  const apiKey = process.env.TMDB_API_KEY;
+
   const url = `https://api.themoviedb.org/3/search/movie?query=${query}&include_adult=false&language=en-US`;
 
   try {
@@ -9,8 +11,7 @@ export async function GET(req) {
       method: "GET",
       headers: {
         accept: "application/json",
-        Authorization:
-          "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJkMjg0M2Q0NjhmYzZiMWQyZGJiMWQ4YWJhY2RhOThjMiIsIm5iZiI6MTcyOTY4NjkzNi43MTUwMDAyLCJzdWIiOiI2NzE4ZWQ5OGM3ODAyY2M1MDM1OWFiMGYiLCJzY29wZXMiOlsiYXBpX3JlYWQiXSwidmVyc2lvbiI6MX0.iprcFJqKlYXARrv6ZvxzoC0mChzQnZ4CXXPxC1Lp6k0",
+        Authorization: `Bearer ${apiKey}`,
       },
     });
 

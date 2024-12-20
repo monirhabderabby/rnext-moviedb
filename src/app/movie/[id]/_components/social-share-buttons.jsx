@@ -1,4 +1,5 @@
 "use client";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 
 const SocialShareButtons = () => {
@@ -25,7 +26,9 @@ const SocialShareButtons = () => {
         className="text-center cursor-pointer"
         target="_blank"
       >
-        <img
+        <Image
+          height={32}
+          width={32}
           src="http://facebook.com/favicon.ico"
           alt="Facebook"
           className="w-8 h-8 rounded-full object-cover mb-2 mx-auto"
@@ -38,7 +41,9 @@ const SocialShareButtons = () => {
         target="_blank"
         className="text-center cursor-pointer"
       >
-        <img
+        <Image
+          height={32}
+          width={32}
           src="http://x.com/favicon.ico"
           alt="Facebook"
           className="w-8 h-8 rounded-full object-cover mb-2 mx-auto"
@@ -51,9 +56,11 @@ const SocialShareButtons = () => {
         target="_blank"
         className="text-center cursor-pointer"
       >
-        <img
+        <Image
           src="http://linkedin.com/favicon.ico"
           alt="Facebook"
+          height={32}
+          width={32}
           className="w-8 h-8 rounded-full object-cover mb-2 mx-auto"
         />
         <p className="text-sm">Linkedin</p>

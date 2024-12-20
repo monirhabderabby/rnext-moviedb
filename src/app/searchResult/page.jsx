@@ -40,7 +40,9 @@ const Page = () => {
   return (
     <main className="container mx-auto px-4 pt-24 pb-8">
       <div className="mb-6">
-        <h1 className="text-2xl font-bold">Search Results for "{query}"</h1>
+        <h1 className="text-2xl font-bold">
+          Search Results for &apos;{query}&apos;
+        </h1>
         <p className="text-gray-400">Found {movies.length} results</p>
       </div>
       {content}

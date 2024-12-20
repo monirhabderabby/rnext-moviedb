@@ -1,9 +1,8 @@
 "use client";
 import Image from "next/image";
 
-const ClientImage = async (props) => {
-  //   const { base64 } = await getPlaiceholder(buffer);
-  return <Image {...props} />;
+const ClientImage = (props) => {
+  return <Image alt="fsdf" {...props} />;
 };
 
 export default ClientImage;

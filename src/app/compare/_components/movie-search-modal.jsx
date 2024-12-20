@@ -1,5 +1,5 @@
 import { getMoviesBySearch } from "@/lib/queries";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import MovieSearchCard from "./movie-search-card";
 
 const MovieSearchModal = ({ onMovieAdd, slotId, onClose }) => {
@@ -7,13 +7,13 @@ const MovieSearchModal = ({ onMovieAdd, slotId, onClose }) => {
   const [moviesList, setMoviesList] = useState([]);
   const [debouncedTerm, setDebouncedTerm] = useState(term);
 
-  const getMovies = async () => {
+  const getMovies = useCallback(async () => {
     const movies = await getMoviesBySearch(term ?? undefined);
 
     if (movies.data.length !== 0) {
       setMoviesList(movies.data);
     }
-  };
+  }, [term]);
 
   useEffect(() => {
     const handler = setTimeout(() => {
@@ -30,7 +30,7 @@ const MovieSearchModal = ({ onMovieAdd, slotId, onClose }) => {
     if (debouncedTerm) {
       getMovies();
     }
-  }, [debouncedTerm]);
+  }, [debouncedTerm, getMovies]);
 
   return (
     <div className="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50 ">

@@ -23,7 +23,7 @@ const WatchlistButtons = ({ movieId }) => {
     if (auth?._id) {
       watchList();
     }
-  }, [auth]);
+  }, [auth, movieId]);
 
   const handleAdd = async () => {
     try {

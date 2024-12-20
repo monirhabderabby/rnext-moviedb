@@ -39,6 +39,7 @@ const LoginForm = () => {
       toast.promise(loginPromise, {
         loading: "Logging in...",
         success: (user) => {
+          console.log(user);
           if (!user) {
             toast.error("Failed to loggin in 🥺");
           } else {

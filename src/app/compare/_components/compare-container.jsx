@@ -1,12 +1,8 @@
 "use client";
-import { useAuth } from "@/hooks/useAuth";
 import { useState } from "react";
 import SLot from "./slot";
 
 const CompareContainer = () => {
-  const { auth } = useAuth();
-
-  console.log("logged in user", auth);
   // State to manage the list of slots, initialized with two default slots
   const [slots, setSlots] = useState([{ slotId: 1 }, { slotId: 2 }]);
 

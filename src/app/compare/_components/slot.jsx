@@ -6,7 +6,6 @@ import { memo, useEffect, useState } from "react";
 import MovieSearchModal from "./movie-search-modal";
 
 const SLot = ({ slot, onRemove, onMovieAdd }) => {
-  console.log("render slotid", slot.slotId);
   // State to store additional movie information fetched from API
   const [additionalMovieInfo, setAdditionalMovieInfo] = useState(null);
 

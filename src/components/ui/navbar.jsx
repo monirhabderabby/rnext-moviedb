@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { Suspense } from "react";
 import AuthButton from "./AuthButton";
 import Search from "./search";
 
@@ -24,7 +25,9 @@ const Navbar = () => {
           </div>
         </div>
         <div className="relative space-x-3 flex">
-          <Search />
+          <Suspense>
+            <Search />
+          </Suspense>
           <div
             id="searchResults"
             className="absolute w-full mt-2 bg-black bg-opacity-90 rounded-lg hidden"

@@ -1,12 +1,10 @@
-import { Suspense } from "react";
-import SearchResultContaine from "./_components/container";
+import dynamic from "next/dynamic";
+const SearchResultContaine = dynamic(() => import("./_components/container"), {
+  ssr: false,
+});
 
 const Page = () => {
-  return (
-    <Suspense>
-      <SearchResultContaine />
-    </Suspense>
-  );
+  return <SearchResultContaine />;
 };
 
 export default Page;

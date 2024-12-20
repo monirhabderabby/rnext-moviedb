@@ -1,5 +1,6 @@
 import SimilerMoviesSkeleton from "@/components/skeleton/similer-movies-skeleton";
 import { getSingleMovie } from "@/lib/queries";
+import { notFound } from "next/navigation";
 import { Suspense } from "react";
 import MovieDetails from "./_components/movie-details";
 import SimilerMovies from "./_components/similer-movies";
@@ -12,6 +13,10 @@ const Page = async ({ params }) => {
   }
 
   const movieDetails = await getSingleMovie(movieId);
+
+  if (!movieDetails) {
+    return notFound();
+  }
 
   return (
     <div>

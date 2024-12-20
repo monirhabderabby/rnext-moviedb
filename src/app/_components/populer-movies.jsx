@@ -1,12 +1,10 @@
 import MovieCard from "@/components/cards/movie-card";
 
 const PopulerMovies = async () => {
-  const populerMoviesRes = await fetch(
-    "http://localhost:3000/api/movies/populer",
-    {
-      cache: "no-store",
-    }
-  );
+  const url = `${process.env.NEXT_PUBLIC_APP_URL}/api/movies/populer`;
+  const populerMoviesRes = await fetch(url, {
+    cache: "no-store",
+  });
 
   const populerMoviesData = await populerMoviesRes.json();
   const populerMovies = populerMoviesData?.data;

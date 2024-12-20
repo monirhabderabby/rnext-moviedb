@@ -1,12 +1,10 @@
 import MovieCard from "@/components/cards/movie-card";
 
 const TopRated = async () => {
-  const topRatedMoviesRes = await fetch(
-    "http://localhost:3000/api/movies/rated",
-    {
-      cache: "no-store",
-    }
-  );
+  const url = `${process.env.NEXT_PUBLIC_APP_URL}/api/movies/rated`;
+  const topRatedMoviesRes = await fetch(url, {
+    cache: "no-store",
+  });
 
   const topRatedMoviesData = await topRatedMoviesRes.json();
   const topRatedMovies = topRatedMoviesData?.data;

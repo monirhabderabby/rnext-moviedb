@@ -1,36 +1,62 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-## Getting Started
 
-First, run the development server:
+# MovieDB
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+MovieDB is a web application built using the TMDB API. It allows users to search for movies, compare their favorite titles, and manage their own accounts with login and registration functionality.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Features
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+- **User Authentication**  
+  - Login and Registration using secure form validation.
+  
+- **Movie Search**  
+  - Search for movies with details powered by the TMDB API.
+  
+- **Movie Comparison**  
+  - Compare movies side-by-side based on their key attributes like rating, runtime, and release date.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## Technologies Used
 
-## Learn More
+- **Frontend**: React.js / Next.js  
+- **Backend**: Node.js / Express.js  
+- **Authentication**: JWT / OAuth  
+- **API**: [TMDB API](https://www.themoviedb.org/documentation/api)  
 
-To learn more about Next.js, take a look at the following resources:
+## Setup
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+1. Clone the repository:  
+   ```bash
+   git clone https://github.com/monirhrabby/movieDB.git
+   cd movieDB
+   ```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+2. Install dependencies:  
+   ```bash
+   npm install
+   ```
 
-## Deploy on Vercel
+3. Set up environment variables:  
+   Create a `.env` file and add the following:
+   ```env
+   MONGO_URI=your mongodb atlas key
+   NEXT_PUBLIC_APP_URL=your base url
+   ```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+4. Start the application:  
+   ```bash
+   npm run dev
+   ```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+5. Access the app at `http://localhost:3000`.
+
+## How to Use
+
+1. **Register/Login**:  
+   - Create an account or log in using your credentials.
+   
+2. **Search Movies**:  
+   - Use the search bar to find movies by title.
+   
+3. **Compare Movies**:  
+   - Select movies to compare their details side by side.
+

@@ -24,12 +24,12 @@ const WatchListCard = ({ movieId, userId, onRemove }) => {
 
   if (!data) {
     return (
-      <div class="bg-gray-800 rounded-lg overflow-hidden shadow-lg animate-pulse relative h-72">
-        <div class="absolute inset-0 bg-gray-200 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4">
-          <div class="h-6 bg-gray-200 rounded w-1/2 mb-2"></div>
-          <div class="flex justify-between items-center">
-            <div class="h-4 bg-gray-200 rounded w-10"></div>
-            <div class="h-6 bg-gray-200 rounded w-24"></div>
+      <div className="bg-gray-800 rounded-lg overflow-hidden shadow-lg animate-pulse relative h-72">
+        <div className="absolute inset-0 bg-gray-200 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4">
+          <div className="h-6 bg-gray-200 rounded w-1/2 mb-2"></div>
+          <div className="flex justify-between items-center">
+            <div className="h-4 bg-gray-200 rounded w-10"></div>
+            <div className="h-6 bg-gray-200 rounded w-24"></div>
           </div>
         </div>
       </div>

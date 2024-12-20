@@ -2,11 +2,17 @@
 import WatchListCard from "@/components/cards/watchlist-card";
 import { useAuth } from "@/hooks/useAuth";
 import { getWatchlist } from "@/lib/queries";
+import { redirect } from "next/navigation";
 import { Suspense, useEffect, useState } from "react";
+import WatchlistEmpty from "./watchlist-empty";
 
 const WatchlistContainer = () => {
   const [watchLists, setWatchlists] = useState([]);
   const { auth } = useAuth();
+
+  if (!auth) {
+    redirect("/login");
+  }
 
   useEffect(() => {
     const getData = async () => {
@@ -24,6 +30,10 @@ const WatchlistContainer = () => {
 
     setWatchlists(updatedWatchlists);
   };
+
+  if (watchLists.length === 0) {
+    return <WatchlistEmpty />;
+  }
 
   return (
     <div className="container mx-auto pt-24 pb-8">

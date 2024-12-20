@@ -2,10 +2,11 @@ import { base64 } from "@/lib/base64";
 import { getFullImageSrc } from "@/lib/imagePathGenerate";
 import { getSingleMovie } from "@/lib/queries";
 import Image from "next/image";
-import { useEffect, useState } from "react";
+import { memo, useEffect, useState } from "react";
 import MovieSearchModal from "./movie-search-modal";
 
 const SLot = ({ slot, onRemove, onMovieAdd }) => {
+  console.log("render slotid", slot.slotId);
   // State to store additional movie information fetched from API
   const [additionalMovieInfo, setAdditionalMovieInfo] = useState(null);
 
@@ -98,7 +99,7 @@ const SLot = ({ slot, onRemove, onMovieAdd }) => {
   );
 };
 
-export default SLot;
+export default memo(SLot);
 
 // Component to render an empty slot placeholder
 const EmptySlot = ({ onRemove, slot, onMovieAdd }) => {

@@ -25,6 +25,7 @@ const MovieCard = async ({ isTextRender, data }) => {
             className="w-full rounded-lg bg-white/10"
             placeholder="blur"
             blurDataURL={base64}
+            style={{ height: "auto", width: "auto" }}
           />
         )}
         {isTextRender && (

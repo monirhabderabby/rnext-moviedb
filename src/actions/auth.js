@@ -25,6 +25,7 @@ export async function loginUser(data) {
     } else if (user.password !== data.password) {
       throw new Error("Incorrect password. Please try again.");
     } else {
+      console.log(user);
       return JSON.stringify(user);
     }
   } catch (error) {

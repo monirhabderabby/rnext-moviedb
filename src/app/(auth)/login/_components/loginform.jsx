@@ -43,7 +43,7 @@ const LoginForm = () => {
           if (!user) {
             toast.error("Failed to loggin in 🥺");
           } else {
-            setAuth(JSON.parse(user));
+            setAuth(user);
             navigate.push("/");
             return "Logged in successfully 🎉";
           }

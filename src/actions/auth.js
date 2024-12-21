@@ -20,6 +20,7 @@ export async function registerUser(data) {
 
 export async function loginUser(data) {
   try {
+    await dbConnect();
     const user = await UserModal.findOne({ email: data.email });
 
     if (!user) {

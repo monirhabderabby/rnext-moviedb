@@ -1,9 +1,11 @@
 "use server";
 
+import { dbConnect } from "@/lib/mongo";
 import { WatchlistModel } from "@/models/watchlist-modal";
 
 export const addToWatchlist = async (data) => {
   try {
+    await dbConnect();
     const res = await WatchlistModel.create(data);
 
     return JSON.stringify(res);
@@ -14,6 +16,7 @@ export const addToWatchlist = async (data) => {
 
 export const ifWatched = async ({ userId, movieId }) => {
   try {
+    await dbConnect();
     const found = await WatchlistModel.findOne({
       userId,
       movieId,
@@ -31,6 +34,7 @@ export const ifWatched = async ({ userId, movieId }) => {
 
 export const removeWatchlist = async ({ userId, movieId }) => {
   try {
+    await dbConnect();
     const deleted = await WatchlistModel.deleteOne({
       userId,
       movieId,

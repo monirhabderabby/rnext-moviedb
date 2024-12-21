@@ -15,12 +15,13 @@ const WatchlistContainer = () => {
   }
 
   useEffect(() => {
+    const authData = JSON.parse(auth);
     const getData = async () => {
-      const data = await getWatchlist(auth?._id);
+      const data = await getWatchlist(authData?._id);
       setWatchlists(data);
     };
 
-    if (auth?._id) {
+    if (authData?._id) {
       getData();
     }
   }, [auth]);

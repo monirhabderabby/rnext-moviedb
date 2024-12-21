@@ -5,6 +5,10 @@ import { WatchlistModel } from "@/models/watchlist-modal";
 
 export const addToWatchlist = async (data) => {
   try {
+    console.log(data);
+    if (!data.userId) {
+      throw new Error("userId is requried to add to watchlist");
+    }
     await dbConnect();
     const res = await WatchlistModel.create(data);
 

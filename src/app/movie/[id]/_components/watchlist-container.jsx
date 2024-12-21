@@ -2,6 +2,7 @@
 import { addToWatchlist, ifWatched } from "@/actions/watchlist";
 import { Icons } from "@/components/ui/Icons";
 import { useAuth } from "@/hooks/useAuth";
+import { redirect } from "next/navigation";
 import { useEffect, useState } from "react";
 import { toast } from "sonner";
 
@@ -26,9 +27,14 @@ const WatchlistButtons = ({ movieId }) => {
   }, [auth, movieId]);
 
   const handleAdd = async () => {
+    const authData = JSON.parse(auth);
+
+    if (!auth) {
+      redirect("/login");
+    }
     try {
       const res = await addToWatchlist({
-        userId: auth?._id,
+        userId: authData?._id,
         movieId,
       });
 
@@ -38,6 +44,7 @@ const WatchlistButtons = ({ movieId }) => {
         toast.error("Something went wrong");
       }
     } catch (error) {
+      console.log(error);
       toast.error("Failed to add to watchlist");
     }
   };

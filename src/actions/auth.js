@@ -1,9 +1,11 @@
 "use server";
 
+import { dbConnect } from "@/lib/mongo";
 import { UserModal } from "@/models/user-modal";
 
 export async function registerUser(data) {
   try {
+    await dbConnect();
     const user = await UserModal.create(data);
 
     return JSON.stringify({
